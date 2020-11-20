@@ -41,22 +41,28 @@ public class Libro {
         return numeroPaginas;
     }
     public void imprimirDetalles() {    
-        System.out.println("Titulo: " + titulo + "," + " Autor: " + autor + "," + " Páginas: " + numeroPaginas + "Número de Referencia: " + numeroReferencia);
+         String detalles = "Titulo: " + titulo + "," + " Autor: " + autor + "," + " Páginas: " + numeroPaginas; 
+        if (numeroReferencia != ("")) {
+            System.out.println(detalles + " Número de Referencia: " + numeroReferencia);
+        }
+        else{
+             System.out.println(detalles + " Número de Referencia: ZZZ");
+        }    
         
     }
     public String getDetalles() {
-        String detalles = "Titulo: " + titulo + "," + " Autor: " + autor + "," + " Páginas: " + numeroPaginas + "Número de Referencia: " + numeroReferencia; 
-        if ("" != (numeroReferencia)) {
-            System.out.println("Numero de Referencia: " + numeroReferencia);
+        String detalles = "Titulo: " + titulo + "," + " Autor: " + autor + "," + " Páginas: " + numeroPaginas; 
+        if (numeroReferencia != ("")) {
+            detalles = detalles + " Número de Referencia: " + numeroReferencia;
         }
         else{
-            System.out.println("Número de referencia: ZZZ" );
+            detalles = detalles + " Número de Referencia: ZZZ";
         }    
         return detalles;
     }
     public void setNumeroReferencia(String nuevoNumeroReferencia) {
         int numeroCaracteresReferencia = 3;
-        if(numeroReferencia.length() < 3){
+        if(numeroReferencia.length() >= 3){
            System.out.println("Se necesitan 3 o más caracteres para realizar este metodo.");
         }
         numeroReferencia = nuevoNumeroReferencia;
