@@ -15,18 +15,24 @@ public class Libro {
     private int numeroPaginas;
     private String numeroReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroPaginasLibro, int cantidadVecesPrestado)
+    public Libro(String autorLibro, String tituloLibro, int numeroPaginasLibro, int cantidadVecesPrestado, boolean libroTexto)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroPaginasLibro;
         numeroReferencia = "";
         vecesPrestado = cantidadVecesPrestado;
+        esLibroDeTexto = libroTexto;
     }
+    public boolean getEsLibroDeTexto(){
+        return esLibroDeTexto;
+    }
+    
     public void prestar() {
         vecesPrestado = vecesPrestado + 1;
         
@@ -57,7 +63,12 @@ public class Libro {
         else{
              System.out.println(detalles + " Número de Referencia: ZZZ");
         }    
-        
+        if (esLibroDeTexto) {
+           System.out.println("Se está usando como libro de texto");	          
+        }
+        else{
+           System.out.println("No se está usando como libro de texto");
+        }
     }
     public String getDetalles() {
         String detalles = "Titulo: " + titulo + "," + " Autor: " + autor + "," + " Páginas: " + numeroPaginas + " Numero de veces prestado: " + vecesPrestado; 
@@ -67,6 +78,12 @@ public class Libro {
         else{
             detalles = detalles + " Número de Referencia: ZZZ";
         }    
+        if (esLibroDeTexto) {
+           detalles = detalles + " Se está usando como libro de texto";	          
+        }
+        else{
+           detalles = detalles + " No se está usando como libro de texto";
+        }
         return detalles;
     }
     public void setNumeroReferencia(String nuevoNumeroReferencia) {
