@@ -14,16 +14,25 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroPaginasLibro)
+    public Libro(String autorLibro, String tituloLibro, int numeroPaginasLibro, int cantidadVecesPrestado)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroPaginasLibro;
         numeroReferencia = "";
+        vecesPrestado = cantidadVecesPrestado;
+    }
+    public void prestar() {
+        vecesPrestado = vecesPrestado + 1;
+        
+    }
+    public int getPrestar() {
+        return vecesPrestado;
     }
     public String getNombreAutor(){
         return autor;
@@ -41,7 +50,7 @@ public class Libro {
         return numeroPaginas;
     }
     public void imprimirDetalles() {    
-         String detalles = "Titulo: " + titulo + "," + " Autor: " + autor + "," + " Páginas: " + numeroPaginas; 
+         String detalles = "Titulo: " + titulo + "," + " Autor: " + autor + "," + " Páginas: " + numeroPaginas + " Numero de veces prestado: " + vecesPrestado; 
         if (numeroReferencia != ("")) {
             System.out.println(detalles + " Número de Referencia: " + numeroReferencia);
         }
@@ -51,7 +60,7 @@ public class Libro {
         
     }
     public String getDetalles() {
-        String detalles = "Titulo: " + titulo + "," + " Autor: " + autor + "," + " Páginas: " + numeroPaginas; 
+        String detalles = "Titulo: " + titulo + "," + " Autor: " + autor + "," + " Páginas: " + numeroPaginas + " Numero de veces prestado: " + vecesPrestado; 
         if (numeroReferencia != ("")) {
             detalles = detalles + " Número de Referencia: " + numeroReferencia;
         }
